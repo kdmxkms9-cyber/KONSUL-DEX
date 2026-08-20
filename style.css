@@ -1,0 +1,210 @@
+/* RESET BROWSER */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    overflow-x: hidden;
+    background-color: #111;
+}
+
+/* ========================================================= */
+/* HEADER STYLES                                             */
+/* ========================================================= */
+.header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    z-index: 100;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.5), transparent);
+}
+
+/* Logo Pill Oval */
+.logo-pill {
+    background-color: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(8px);
+    padding: 10px 35px;
+    border-radius: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.logo-pill span {
+    font-weight: 900;
+    font-size: 18px;
+    letter-spacing: 2px;
+    color: #000;
+}
+
+/* Navigasi Kanan */
+.nav-menu {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-menu a {
+    color: #000;
+    text-decoration: none;
+    font-weight: 900;
+    font-size: 16px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    transition: opacity 0.3s ease;
+}
+
+.nav-menu a:hover {
+    opacity: 0.7;
+}
+
+/* ========================================================= */
+/* HERO SLIDER SECTION                                       */
+/* ========================================================= */
+.hero-slider {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    /* Background Default awal */
+    background-image: url('image/images (2) (2).jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    /* Transisi perpindahan background halus */
+    transition: background-image 1s ease-in-out;
+}
+
+/* Gambar Logo di Tengah */
+.hero-content img {
+    max-width: 450px;
+    width: 80vw;
+    height: auto;
+    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5));
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+/* Dots Indikator (Atas Tengah) */
+.dots-container {
+    position: absolute;
+    top: 90px;
+    display: flex;
+    gap: 8px;
+    z-index: 10;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.dot.active {
+    background-color: #000;
+    transform: scale(1.2);
+}
+
+/* Tombol Panah Navigasi */
+.nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.4);
+    color: white;
+    border: none;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.nav-btn:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+    transform: translateY(-50%) scale(1.1);
+}
+/* ========================================================= */
+/* FOOTER MELAYANG & TRANSPARAN                              */
+/* ========================================================= */
+.footer {
+    position: absolute;       /* Memaksa footer melayang di dalam hero-slider */
+    bottom: 0;                /* Menempel di bagian bawah layar */
+    left: 0;
+    width: 100%;
+    
+    /* Background Hitam Transparan dengan Efek Blur */
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+    backdrop-filter: blur(4px); /* Efek buram halus pada background dibelakangnya */
+    
+    color: #ffffff;
+    padding: 15px 50px;
+    z-index: 100;             /* Memastikan footer berada di atas gambar background */
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.footer-content p {
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    opacity: 0.8;
+}
+
+.social-links {
+    display: flex;
+    gap: 20px;
+}
+
+.social-links a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: opacity 0.3s ease, color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #f1c40f;
+    opacity: 1;
+}
+
+/* Responsif Layar HP */
+@media (max-width: 768px) {
+    .footer {
+        padding: 12px 20px;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 8px;
+    }
+}
+
+.prev-btn { left: 25px; }
+.next-btn { right: 25px; }

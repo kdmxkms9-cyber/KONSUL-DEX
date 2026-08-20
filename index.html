@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEGMENT - Hero Slider</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- HEADER NAVIGATION -->
+    <header class="header">
+        <div class="logo-pill">
+            <span>SEGMENT</span>
+        </div>
+        <nav class="nav-menu">
+            <a href="#member">MEMBER</a>
+            <a href="#galery">GALERY</a>
+            <a href="#art">ART</a>
+            <a href="#about">ABOUT ME</a>
+        </nav>
+    </header>
+
+    <!-- HERO SLIDER SECTION -->
+    <section class="hero-slider">
+        
+        <!-- Indicator Dots -->
+        <div class="dots-container">
+            <span class="dot active" onclick="currentSlide(0)"></span>
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+        </div>
+
+        <!-- Tombol Panah Kiri & Kanan -->
+        <button class="nav-btn prev-btn" id="prevBtn">&#10094;</button>
+        <button class="nav-btn next-btn" id="nextBtn">&#10095;</button>
+
+        <!-- Konten Tengah -->
+        <div class="hero-content">
+            <img id="centerImage" src="image/foodbattle-removebg-preview.png" alt="Food Battle Logo">
+        </div>
+
+        <!-- 👇 FOOTER MELAYANG DITARUH DI DALAM HERO-SLIDER 👇 -->
+        <footer class="footer">
+            <div class="footer-content">
+                <p>&copy; 2026 SEGMENT. Hak Cipta Dilindungi.</p>
+                <div class="social-links">
+                    <a href="#">Instagram</a>
+                    <a href="#">YouTube</a>
+                    <a href="#">Discord</a>
+                </div>
+            </div>
+        </footer>
+
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
