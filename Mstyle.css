@@ -1,0 +1,286 @@
+/* ========================================================= */
+/* 1. RESET & BASE STYLE                                     */
+/* ========================================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #1a1a1a;
+    overflow-x: hidden;
+}
+
+.member-section {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* HEADER NAVBAR */
+.header-member {
+    position: fixed; /* Fixed agar navbar tetap mengapung saat di-swipe */
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 60px;
+    z-index: 100;
+}
+
+.logo-pill {
+    background-color: rgba(148, 145, 145, 0.436);
+    backdrop-filter: blur(8px);
+    padding: 12px 40px;
+    border-radius: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.logo-pill span {
+    font-weight: 900;
+    font-size: 18px;
+    letter-spacing: 2px;
+    color: #000;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 35px;
+}
+
+.nav-menu a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 900;
+    font-size: 16px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+/* BASE ITEM KARAKTER & HOVER GLOW */
+.character-item {
+    position: absolute;
+    pointer-events: auto;
+    cursor: pointer;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.character-item:not(.pos-meja):hover {
+    transform: translateY(-1.5%) scale(1.02);
+    z-index: 8 !important; 
+}
+.m-bucket:hover,
+.m-art:hover,
+.m-art2:hover,
+.m-art3:hover,
+.m-aji:hover,
+.m-fandi:hover,
+.m-vincen:hover,
+.m-shakira:hover,
+.m-zidan:hover {
+    filter: drop-shadow(0px 0px 4px #ffffff) 
+            drop-shadow(0px 0px 10px rgba(255, 255, 255, 0.8));
+}
+
+/* ========================================================= */
+/* 2. MODE DESKTOP & LANDSCAPE LEBAR (Layar >= 769px)        */
+/* ========================================================= */
+@media screen and (min-width: 769px) {
+
+    .member-section {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .scene-container {
+        position: relative;
+        width: 100vw;
+        height: 100vh;
+        min-width: 177.78vh; 
+        min-height: 56.25vw;
+    }
+
+    .scene-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: 0;
+    }
+
+    .character-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        pointer-events: none;
+    }
+
+    /* KOORDINAT DESKTOP */
+    .pos-bucket {top: 75%; left: 68%; height: 20%; z-index: 1;}
+    .pos-art { top: 24%; left: 30%; height: 20%; z-index: 1;}
+    .pos-art2 { top: 24%; left: 40%; height: 20%; z-index: 1;}
+    .pos-art3 { top: 24%; left: 50%; height: 20%; z-index: 1;}
+    .pos-meja { top: 70%; left: 31.8%; height: 23.8%; z-index: 15; pointer-events: none; }
+    .pos-aji { top: 4%; left: 0.01%; height: 91%; z-index: 13; }
+    .pos-fandi { top: 30%; left: 17%; height: 66.7%; z-index: 12; }
+    .pos-vincen { top: 37.1%; left: 42.5%; height: 62.9%; z-index: 11; }
+    .pos-shakira { top: 31.5%; left: 56.8%; height: 68.5%; z-index: 10; }
+    .pos-zidan { top: 39.1%; left: 73.5%; height: 60.9%; z-index: 9; }
+}
+
+/* ========================================================= */
+/* 3. MODE HP / POTRET (Layar <= 768px)                      */
+/* ========================================================= */
+@media screen and (max-width: 768px) {
+
+    /* Hapus pembatas overflow pada body & section khusus HP */
+    html, body {
+        overflow-x: auto !important;
+    }
+
+    .member-section {
+        width: max-content; /* Mengikuti lebar asli kanvas di dalamnya */
+        min-width: 100vw;
+        height: 100vh;
+        overflow: visible !important;
+        display: block;
+    }
+
+    /* Penyesuaian Header Navbar Melayang di HP */
+    .header-member {
+        position: fixed; /* Tetap mengapung saat di-scroll */
+        top: 0;
+        left: 0;
+        width: 100vw;
+        padding: 12px 15px;
+        z-index: 100;
+    }
+
+    .logo-pill { padding: 6px 16px; }
+    .logo-pill span { font-size: 11px; }
+    .nav-menu { gap: 10px; }
+    .nav-menu a { font-size: 9px; }
+
+    /* KANVAS HP: Mengunci lebar kanvas agar 100% pas dengan rasio background */
+    .scene-container {
+        position: relative;
+        height: 100vh;
+        width: 177.78vh; /* Menjaga rasio 16:9 utuh penuh */
+        min-width: 177.78vh;
+        overflow: hidden;
+    }
+
+    /* BACKGROUND HP: Dipaksa Mengisi 100% Kanvas Tanpa Sisa */
+    .scene-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: fill; /* Memastikan background mengisi dari ujung kiri ke ujung kanan kanvas */
+        z-index: 0;
+    }
+
+    .character-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        pointer-events: none;
+    }
+
+    /* ------------------------------------------------------ */
+    /* KOORDINAT POSISI MEMBER DI MODE HP                     */
+    /* ------------------------------------------------------ */
+
+    /* Art */
+    .pos-art {
+        top: 24%;
+        left: 30%;
+        height: 20%;
+        z-index: 1;
+    }
+
+    /* Art2 */
+    .pos-art2 {
+        top: 24%;
+        left: 40%;
+        height: 20%;
+        z-index: 1;
+    }
+    /* Art3 */
+    .pos-art3 {
+        top: 24%;
+        left: 50%;
+        height: 20%;
+        z-index: 1;
+    }
+    /* bucket */
+    .pos-bucket {
+        top: 80%;
+        left: 68%;
+        height: 20%;
+        z-index: 1;
+    }
+    /* Meja */
+    .pos-meja {
+        top: 76.2%;
+        left: 34.5%;
+        height: 23.8%;
+        z-index: 15;
+        pointer-events: none;
+    }
+
+    /* 1. Jester / Aji */
+    .pos-aji {
+        top: 4%;
+        left: 0.01%;
+        height: 96%;
+        z-index: 13;
+    }
+
+    /* 2. Fandi */
+    .pos-fandi {
+        top: 33.3%;
+        left: 17.5%;
+        height: 66.7%;
+        z-index: 12;
+    }
+
+    /* 3. Vincen */
+    .pos-vincen {
+        top: 40.5%;
+        left: 42.2%;
+        height: 62.9%;
+        z-index: 11;
+    }
+
+    /* 4. Shakira */
+    .pos-shakira {
+        top: 31.5%;
+        left: 56%;
+        height: 68.5%;
+        z-index: 10;
+    }
+
+    /* 5. Zidan */
+    .pos-zidan {
+        top: 39.1%;
+        left: 73.5%;
+        height: 60.9%;
+        z-index: 9;
+    }
+}

@@ -29,11 +29,11 @@ body {
 
 /* Logo Pill Oval */
 .logo-pill {
-    background-color: rgba(255, 255, 255, 0.25);
+    background-color: rgba(148, 145, 145, 0.436);
     backdrop-filter: blur(8px);
-    padding: 10px 35px;
+    padding: 12px 40px;
     border-radius: 50px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .logo-pill span {
@@ -46,17 +46,16 @@ body {
 /* Navigasi Kanan */
 .nav-menu {
     display: flex;
-    gap: 30px;
+    gap: 35px;
 }
 
 .nav-menu a {
-    color: #000;
+    color: #ffffff;
     text-decoration: none;
     font-weight: 900;
     font-size: 16px;
     letter-spacing: 1.5px;
     text-transform: uppercase;
-    transition: opacity 0.3s ease;
 }
 
 .nav-menu a:hover {
@@ -75,7 +74,7 @@ body {
     align-items: center;
     
     /* Background Default awal */
-    background-image: url('image/images (2) (2).jpg');
+    background-image: url('image/BG1\ \(2\).jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -205,6 +204,107 @@ body {
         gap: 8px;
     }
 }
+/* ========================================================= */
+/* KURSOR & HOVER PADA GAMBAR UTAMA                          */
+/* ========================================================= */
+.hero-content img {
+    cursor: pointer; /* Mengubah kursor jadi bentuk tangan */
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
 
+.hero-content img:hover {
+    transform: scale(1.05); /* Sedikit membesar saat kursor di atas logo */
+    filter: drop-shadow(0 15px 25px rgba(255, 255, 255, 0.2));
+}
+
+/* ========================================================= */
+/* MODAL POPUP & ANIMASI                                     */
+/* ========================================================= */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(8px); /* Efek buram latar belakang */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    
+    /* Sembunyi secara default */
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+/* Kartu Abu-abu Presisi Seperti Gambar */
+.modal-card {
+    background-color: #535353; /* Warna abu-abu gelap */
+    border: 2px solid rgba(255, 255, 255, 0.15);
+    border-radius: 24px;
+    width: 90%;
+    max-width: 700px;
+    padding: 40px 30px;
+    position: relative;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+    
+    /* Animasi Buka Pop-up (Bounce Scale) */
+    transform: scale(0.7) translateY(30px);
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Saat Modal Aktif (Muncul) */
+.modal-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal-overlay.active .modal-card {
+    transform: scale(1) translateY(0);
+}
+
+/* Tombol Tutup (X) */
+.modal-close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: transparent;
+    border: none;
+    color: #ffffff;
+    font-size: 28px;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.modal-close:hover {
+    opacity: 1;
+    transform: scale(1.2);
+}
+
+/* Isi Konten Modal */
+.modal-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+}
+
+.modal-body img {
+    max-width: 280px;
+    width: 70%;
+    height: auto;
+}
+
+.modal-body p {
+    color: #ffffff;
+    font-size: 15px;
+    line-height: 1.6;
+    letter-spacing: 1px;
+    word-break: break-word;
+}
 .prev-btn { left: 25px; }
 .next-btn { right: 25px; }
