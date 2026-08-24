@@ -127,11 +127,11 @@ body {
     }
 
     /* KOORDINAT DESKTOP */
-    .pos-bucket {top: 75%; left: 68%; height: 20%; z-index: 1;}
+    .pos-bucket {top: 78%; left: 68%; height: 20%; z-index: 1;}
     .pos-art { top: 24%; left: 30%; height: 20%; z-index: 1;}
     .pos-art2 { top: 24%; left: 40%; height: 20%; z-index: 1;}
     .pos-art3 { top: 24%; left: 50%; height: 20%; z-index: 1;}
-    .pos-meja { top: 70%; left: 31.8%; height: 23.8%; z-index: 15; pointer-events: none; }
+    .pos-meja { top: 73%; left: 31.8%; height: 23.8%; z-index: 15; pointer-events: none; }
     .pos-aji { top: 4%; left: 0.01%; height: 91%; z-index: 13; }
     .pos-fandi { top: 30%; left: 17%; height: 66.7%; z-index: 12; }
     .pos-vincen { top: 37.1%; left: 42.5%; height: 62.9%; z-index: 11; }
